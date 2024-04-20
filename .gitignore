@@ -9,6 +9,7 @@
 .pyi_generator_diff
 .pyi_generator_last_run
 .venv
-venv
+.web
+__pycache__/
 requirements.txt
 venv
