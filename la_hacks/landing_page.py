@@ -29,7 +29,7 @@ def landing_page() -> rx.Component:
                     "paddingLeft": "4rem",
                     "paddingRight": "4rem",
                 },
-                class_name="sm:text-sm md:text-lg lg:text-xl",  # Responsive text sizing
+                class_name="sm:text-sm md:text-lg lg:text-xl fade-in-text",  # Responsive text sizing
             ),
             rx.text(
                 "Easily scan product barcodes to uncover the environmental practices of the producing company and assess the product's impact. Make informed decisions that align with your values and well-being. Say hello to a more conscious shopping experience, effortlessly delivered at your fingertips.",
@@ -45,7 +45,7 @@ def landing_page() -> rx.Component:
                     "paddingLeft": "2rem",
                     "paddingRight": "2rem",
                 },
-                class_name="sm:text-sm md:text-lg lg:text-xl",  # Responsive text sizing
+                class_name="sm:text-sm md:text-lg lg:text-xl fade-in-text",  # Responsive text sizing
             ),
             align="center",
             width="100%",
@@ -69,7 +69,7 @@ def landing_page() -> rx.Component:
                     box-shadow: 4px 3px 1px rgba(0, 0, 0, 0.3); /* Shadow */
                     font-family: 'Roboto' sans-serif; /* Font declaration */
                     "font-weight": "100";
-                    animation: fadeInUp 1s ease; /* Animation on button load */
+                    animation: fadeInUp 1.5s ease; /* Animation on button load */
                 }
                 .btn-rumble img {
                     margin-right: 0.625rem; /* Space between icon and text */
