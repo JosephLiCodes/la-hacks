@@ -2,6 +2,7 @@
 
 import reflex as rx
 from dotenv import load_dotenv
+from la_hacks.scanner import scanner
 from la_hacks.results_page import results
 load_dotenv()
 
@@ -99,4 +100,5 @@ app = rx.App(
     }
 )
 app.add_page(index)
+app.add_page(scanner)
 app.add_page(results, route='/results/[upc]')

@@ -9,10 +9,7 @@
 .pyi_generator_diff
 .pyi_generator_last_run
 .venv
-.vscode
 .web
 __pycache__/
-dist/*
-examples/
 requirements.txt
 venv
