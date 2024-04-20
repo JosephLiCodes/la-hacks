@@ -10,7 +10,7 @@
 .pyi_generator_last_run
 .venv
 .vscode
-.web
+.web/*
 __pycache__/
 dist/*
 examples/
