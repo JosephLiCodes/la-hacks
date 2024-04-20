@@ -18,6 +18,7 @@ def get_product_info(barcode_number):
     product_name = product_data["product_name"]
     ingredients_list = list(map(lambda x: x.split(':')[1], product_data["ingredients_hierarchy"]))
     additives_list = []
+    image_url = product_data["image_url"]
     if(product_data.get("ecoscore_data") != None):
         grade = product_data.get("ecoscore_data").get("grade", "UNKNOWN")
         co2 = product_data.get("ecoscore_data").get("agribalyse").get("co2_total")
@@ -35,5 +36,6 @@ def get_product_info(barcode_number):
         "ingredients": ingredients_list,
         "additives": additives_list,
         "eco_grade": grade,
-        "co2": co2
+        "co2": co2,
+        "image_url" : image_url
     }
