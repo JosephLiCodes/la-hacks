@@ -9,31 +9,30 @@ def landing_page() -> rx.Component:
     return rx.flex(
         rx.flex(
             rx.container(
-                rx.image(src="/logos/logo.png", height="4em",),
-                style={
-                    "borderRadius": "50%",   # This will make the container a circle
-                    "border": "2px solid #56876D",  # Adjust the color and width as needed
-                },
+                rx.image(src="/icons/landing.webp", width="100%", style={"height": "135%", "object-fit": "cover"}),
                 justify="center",
             ),
             rx.text(
-                "WelcomeHAHA to environmental scanner! Get started with your first scan!",
-                size=text_size,
-                color_scheme="green",
-                align = "center",
+                "Welcome to environmental scanner! Get started with your first scan!",
+                style={
+                    "font-family": "Montserrat, sans-serif",
+                    "font-weight": "500",
+                    "font-size": "18px",
+                    "letter-spacing": "0.5px",
+                    "text-align": "center",
+                    "color": "#505050",
+                    "margin-top": "120px",
+                },
             ),
-            padding="1em",
             align="center",  # Aligns children to the start of the cross axis, i.e., the top of the container
             width="100%",
             direction="column",
             spacing="4",  # Adjust the spacing value as needed for gap between items
-            margin_top="35%",
         ),
         rx.html(
                 """
                 <style>
                     .btn-rumble {
-                        background-color: brown; /* Brown background */
                         color: white; /* White text */
                         padding: 10px 20px; /* Padding around the text */
                         font-size: 16px; /* Text size */
@@ -48,18 +47,18 @@ def landing_page() -> rx.Component:
                         height: 20px; /* Icon size */
                     }
                 </style>
-                <button class="btn-rumble" onclick="window.location.href='/scanner';">
+                <button class="btn-rumble bg-[#474448]" onclick="window.location.href='/scanner';">
                     <img src="/icons/tree.svg" alt="Tree Icon">Let's rumble!
                 </button>
                 """,
                 align="center",
             ),
 
-        padding="1em",
         align="center",  # Aligns children to the start of the cross axis, i.e., the top of the container
         width="100%",
         direction="column",
         spacing="9",
         height="100vh",
+        class_name="bg-[#FFFAE2]",
     )
 
