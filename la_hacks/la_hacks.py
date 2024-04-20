@@ -22,7 +22,10 @@ app = rx.App(
             "extend": {},
         },
         "plugins": ["@tailwindcss/typography"],
-    }
+    },
+    stylesheets=[
+        "/styles.css",
+    ]
 )
 app.add_page(index)
 app.add_page(scanner)
