@@ -44,6 +44,16 @@ export function Fragment_a52d8fe64f10518583ae4f1930e9abbd () {
   )
 }
 
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export function Fragment_cb5edf864ed730e6ef1545318d0da5a2 () {
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -61,16 +71,6 @@ export function Fragment_cb5edf864ed730e6ef1545318d0da5a2 () {
 </Fragment>
   )
 }
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
 
 export default function Component() {
   const routeNotFound = useClientSideRouting()

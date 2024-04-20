@@ -13,7 +13,7 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_99ff3f03f2a27684fc6a3e50d6d8ff2f () {
+export function Fragment_5a779644db1b4495db69bec3ae0a06aa () {
   const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
 
 
@@ -22,54 +22,14 @@ export function Fragment_99ff3f03f2a27684fc6a3e50d6d8ff2f () {
     <Fragment>
   {isTrue(((colorMode) === (`light`))) ? (
   <Fragment>
-  <LucideSunIcon css={{"color": "var(--current-color)"}}/>
+  <img css={{"height": "4em"}} src={`/logos/light/reflex.svg`}/>
 </Fragment>
 ) : (
   <Fragment>
-  <LucideMoonIcon css={{"color": "var(--current-color)"}}/>
+  <img css={{"height": "4em"}} src={`/logos/dark/reflex.svg`}/>
 </Fragment>
 )}
 </Fragment>
-  )
-}
-
-export function Fragment_cb5edf864ed730e6ef1545318d0da5a2 () {
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-  return (
-    <Fragment>
-  {isTrue(connectErrors.length > 0) ? (
-  <Fragment>
-  <LucideWifiOffIcon css={{"color": "crimson", "zIndex": 9999, "position": "fixed", "bottom": "30px", "right": "30px", "animation": `${pulse} 1s infinite`}} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Switch_e718961ce6ef9fa7745102ae015f5a3e () {
-  const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-  const on_change_9922dd3e837b9e087c86a2522c2c93f8 = useCallback(toggleColorMode, [addEvents, Event, colorMode, toggleColorMode])
-
-
-  return (
-    <RadixThemesSwitch checked={((colorMode) !== ("light"))} onCheckedChange={on_change_9922dd3e837b9e087c86a2522c2c93f8}/>
   )
 }
 
@@ -103,7 +63,25 @@ export function Fragment_a52d8fe64f10518583ae4f1930e9abbd () {
   )
 }
 
-export function Fragment_5a779644db1b4495db69bec3ae0a06aa () {
+export function Fragment_cb5edf864ed730e6ef1545318d0da5a2 () {
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+  return (
+    <Fragment>
+  {isTrue(connectErrors.length > 0) ? (
+  <Fragment>
+  <LucideWifiOffIcon css={{"color": "crimson", "zIndex": 9999, "position": "fixed", "bottom": "30px", "right": "30px", "animation": `${pulse} 1s infinite`}} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Fragment_99ff3f03f2a27684fc6a3e50d6d8ff2f () {
   const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
 
 
@@ -112,16 +90,38 @@ export function Fragment_5a779644db1b4495db69bec3ae0a06aa () {
     <Fragment>
   {isTrue(((colorMode) === (`light`))) ? (
   <Fragment>
-  <img css={{"height": "4em"}} src={`/logos/light/reflex.svg`}/>
+  <LucideSunIcon css={{"color": "var(--current-color)"}}/>
 </Fragment>
 ) : (
   <Fragment>
-  <img css={{"height": "4em"}} src={`/logos/dark/reflex.svg`}/>
+  <LucideMoonIcon css={{"color": "var(--current-color)"}}/>
 </Fragment>
 )}
 </Fragment>
   )
 }
+
+export function Switch_e718961ce6ef9fa7745102ae015f5a3e () {
+  const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+  const on_change_9922dd3e837b9e087c86a2522c2c93f8 = useCallback(toggleColorMode, [addEvents, Event, colorMode, toggleColorMode])
+
+
+  return (
+    <RadixThemesSwitch checked={((colorMode) !== ("light"))} onCheckedChange={on_change_9922dd3e837b9e087c86a2522c2c93f8}/>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
 
 export default function Component() {
 
