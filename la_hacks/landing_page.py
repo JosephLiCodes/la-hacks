@@ -67,6 +67,8 @@ def landing_page() -> rx.Component:
                         align-items: center; /* Center items vertically */
                         justify-content: center; /* Center items horizontally */
                         box-shadow: 4px 3px 1px rgba(0, 0, 0, 0.3); /* Shadow */
+                        font-family: 'Roboto' sans-serif; /* Font declaration */
+                        "font-weight": "100";
                     }
                     .btn-rumble img {
                         margin-right: 0.625rem; /* Space between icon and text */
