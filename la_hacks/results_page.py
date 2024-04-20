@@ -1,27 +1,22 @@
 import reflex as rx
 from la_hacks.json_parser import get_product_info
+from la_hacks.state import State
 
 
-def results(upc) -> rx.Component:
-    product_info = get_product_info(upc)
-    if isinstance(product_info, str):  # Error case
-        return rx.center(rx.heading(product_info))
-    
-    co2_formatted = f"{float(product_info['co2']):.2f}".rstrip('0').rstrip('.') if product_info['co2'] != "unknown" else "unknown"
-    eco_grade_upper = product_info['eco_grade'].upper()
-    
-    return rx.center(
+def results() -> rx.Component:
+    return rx.cond(
+        State.get_upc.to_string() != 'no upc',
         rx.box(
-            rx.image(src=product_info['image_url']),
-            rx.heading(product_info['name']),
-            rx.text(f"Brand: {product_info['brand']}"),
-            rx.text(f"Eco Grade: {eco_grade_upper}"),
-            rx.text(f"Carbon Footprint: {co2_formatted} g"),
+            rx.image(src=State.get_upc['image_url']),
+            rx.heading(State.get_upc['name']),
+            rx.text(f"Brand: {State.get_upc['brand']}"),
+            rx.text(f"Eco Grade: {State.get_upc['eco_grade']}"),
+            rx.text(f"Carbon Footprint: {State.get_upc['co2']} g"),
             rx.accordion.root(
                 rx.accordion.item(
                     header="Additives",
                     content=rx.list.unordered(
-                        items=product_info['additives']
+                        items=State.get_upc['additives']
                     ),
                     font_size="3em"
                 ),
@@ -31,7 +26,7 @@ def results(upc) -> rx.Component:
                 rx.accordion.item(
                     header="Ingredients",
                     content=rx.list.unordered(
-                        items=product_info['ingredients']
+                        items=State.get_upc['ingredients']
                     ),
                     font_size="3em"
                 ),

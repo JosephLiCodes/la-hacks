@@ -99,4 +99,4 @@ app = rx.App(
     }
 )
 app.add_page(index)
-app.add_page(results('028400047456'), route='/results/[upc]')
+app.add_page(results, route='/results/[upc]')
