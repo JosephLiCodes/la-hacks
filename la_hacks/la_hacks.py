@@ -3,6 +3,7 @@
 import os
 import reflex as rx
 from dotenv import load_dotenv
+from la_hacks.results_page import results
 load_dotenv()
 
 text_size = "5"
@@ -98,3 +99,4 @@ app = rx.App(
     },
 )
 app.add_page(index)
+app.add_page(results)

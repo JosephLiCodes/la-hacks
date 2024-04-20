@@ -16,4 +16,3 @@ dist/*
 examples/
 requirements.txt
 venv
-.web
