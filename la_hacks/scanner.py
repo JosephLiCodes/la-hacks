@@ -59,6 +59,7 @@ def scanner() -> rx.Component:
             if (result) {
               console.log(result.text)
               // handle result
+              window.location.href = "/results/" + result
             }
             if (err && !(err instanceof ZXing.NotFoundException)) {
               console.error(err)
