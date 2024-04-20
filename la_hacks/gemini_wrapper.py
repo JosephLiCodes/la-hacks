@@ -1,11 +1,29 @@
 import requests
 import json
 from dotenv import load_dotenv
-from la_hacks.sentiment import analyzeSentiment
 import os
+import math
 
 # Load environment variables
 load_dotenv()
+
+import nltk
+nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+def sigmoid_ethics_score(sentiment_score):
+        k = 10  # Steepness of the sigmoid curve
+        return 100 / (1 + math.exp(-k * sentiment_score))
+
+def analyze_sentiment(esgGood, esgBad):        
+    analyzer = SentimentIntensityAnalyzer()
+    text_good = " ".join(esgGood)
+    text_bad = " ".join(esgBad)
+    scores_good = analyzer.polarity_scores(text_good)
+    scores_bad = analyzer.polarity_scores(text_bad)
+
+    return scores_good['pos'] - scores_bad['neg']
+
 
 def fetch_esg_data(company_name, tries=0):
     if tries > 3:
@@ -39,7 +57,11 @@ def fetch_esg_data(company_name, tries=0):
         print(response_data)
         # Ensure the response matches the expected format
         if "esgGood" in response_data and "esgBad" in response_data:
-            return response_data
+            return {
+                "esgGood": response_data["esgGood"],
+                "esgBad": response_data["esgBad"],
+                "ethicsScore": sigmoid_ethics_score(analyze_sentiment(response_data["esgGood"], response_data["esgBad"]))
+            }
         else:
             # return response_data
             return fetch_esg_data(company_name, tries+1)
@@ -48,8 +70,6 @@ def fetch_esg_data(company_name, tries=0):
 
 # Usage
 if __name__ == "__main__":
-    company = "Nestle"
+    company = "Kirkland Signature"
     esg_data = fetch_esg_data(company)
-    print(json.dumps(esg_data, indent=2))
-    print(analyzeSentiment(esg_data['esgGood'], esg_data['esgBad']))
-    # print(os.getenv("GEMINI_API_KEY"))
+    print(company, esg_data)
