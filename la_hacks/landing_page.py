@@ -11,29 +11,47 @@ def landing_page() -> rx.Component:
     return rx.flex(
         rx.flex(
             rx.container(
-                rx.image(src="/icons/landing.webp", width="100%", style={"max-height": "50vh", "object-fit": "cover"}),
+                rx.image(src="/icons/landing.webp", width="100%", style={"height": "66vh", "objectFit": "cover"}),
                 justify="center",
                 class_name="bg-[#F3EFE3]",
                 width="100%"
             ),
             rx.text(
-                "Welcome to environmental scanner! Get started with your first scan!",
+                "Welcome to awesome scanner!",
                 style={
-                    "font-family": "Montserrat, sans-serif",
-                    "font-weight": "500",
-                    "font-size": "1rem",  # Base responsive size
-                    "letter-spacing": "0.5px",
-                    "text-align": "center",
+                    "fontFamily": "Montserrat, sans-serif",
+                    "fontWeight": "550",
+                    "fontSize": "1rem",  # Base responsive size
+                    "letterSpacing": "0.5px",
+                    "textAlign": "center",
                     "color": "#505050",
-                    "padding-top": "2rem",  # Adds space above the text
-                    "padding-bottom": "1rem",  # Adds space below the text
+                    "paddingTop": "2rem",  # Adds space above the text
+                    "paddingBottom": "1rem",  # Adds space below the text
+                    "paddingLeft": "4rem",
+                    "paddingRight": "4rem",
+                },
+                class_name="sm:text-sm md:text-lg lg:text-xl",  # Responsive text sizing
+            ),
+            rx.text(
+                "Easily scan product barcodes to uncover the environmental practices of the producing company and assess the product's impact. Make informed decisions that align with your values and well-being. Say hello to a more conscious shopping experience, effortlessly delivered at your fingertips.",
+                style={
+                    "fontFamily": "Roboto, sans-serif",  # Using Roboto as specified
+                    "fontWeight": "200",  # Regular style
+                    "fontSize": "12px",  # Set font size to 16px
+                    "letterSpacing": "normal",  # Normal letter spacing
+                    "textAlign": "center",
+                    "color": "#505050",
+                    "paddingTop": "5px",  # Adds space above the text
+                    "paddingBottom": "15px",  # Adds space below the text
+                    "paddingLeft": "2rem",
+                    "paddingRight": "2rem",
                 },
                 class_name="sm:text-sm md:text-lg lg:text-xl",  # Responsive text sizing
             ),
             align="center",
             width="100%",
             direction="column",
-            spacing="4",
+            spacing="0",
         ),
         rx.html(
                 """
@@ -43,11 +61,12 @@ def landing_page() -> rx.Component:
                         color: white; /* Button text color */
                         padding: 0.625rem 1.25rem; /* Button padding */
                         font-size: 1rem; /* Base responsive text size */
-                        border-radius: 0.4375rem; /* Rounded corners */
+                        border-radius: 1.875rem; /* More rounded corners */
                         cursor: pointer; /* Pointer cursor on hover */
                         display: flex; /* Flexbox for alignment */
                         align-items: center; /* Center items vertically */
                         justify-content: center; /* Center items horizontally */
+                        box-shadow: 4px 3px 1px rgba(0, 0, 0, 0.3); /* Shadow */
                     }
                     .btn-rumble img {
                         margin-right: 0.625rem; /* Space between icon and text */
@@ -63,7 +82,7 @@ def landing_page() -> rx.Component:
         align="center",
         width="100%",
         direction="column",
-        spacing="9",
+        spacing="0",
         height="100vh",
         class_name="bg-[#FFFAE2]",
     )
