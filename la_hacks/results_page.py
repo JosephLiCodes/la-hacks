@@ -7,10 +7,10 @@ def results() -> rx.Component:
     return rx.cond(
         State.get_upc.to_string() != 'no upc',
         rx.box(
-            rx.button(
-                rx.icon(tag="arrow_left"),
-                color_scheme="red",
-                on_click=rx.redirect("/scanner")
+            rx.html(
+                """
+                <button onclick="window.location.replace('/scanner');">Back</button>
+                """
             ),
             rx.image(src=State.get_upc['image_url']),
             rx.heading(State.get_upc['name']),
