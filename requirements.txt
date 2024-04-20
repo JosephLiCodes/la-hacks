@@ -1,0 +1,2 @@
+reflex>=0.4.2
+reflex-chat==0.0.1a2

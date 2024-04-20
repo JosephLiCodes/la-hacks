@@ -1,0 +1,14 @@
+**/.DS_Store
+**/*.pyc
+dist/*
+examples/
+.idea
+.vscode
+.coverage
+.coverage.*
+.venv
+venv
+requirements.txt
+.pyi_generator_last_run
+.pyi_generator_diff
+.env
