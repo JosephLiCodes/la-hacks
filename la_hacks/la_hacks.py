@@ -1,6 +1,5 @@
 """Welcome to Reflex! This file outlines the steps to create a basic app."""
 
-import os
 import reflex as rx
 from dotenv import load_dotenv
 from la_hacks.scanner import scanner
@@ -93,12 +92,13 @@ app = rx.App(
     theme=rx.theme(
         appearance="dark", has_background=True, radius="medium", accent_color="mint"
     ),
-    style={
-        rx.text: {"font_size": "15px"},
-        rx.link: {"font_size": "15px"},
-        rx.code: {"font_size": "15px"},
-    },
+    tailwind={
+        "theme": {
+            "extend": {},
+        },
+        "plugins": ["@tailwindcss/typography"],
+    }
 )
 app.add_page(index)
 app.add_page(scanner)
-app.add_page(results)
+app.add_page(results, route='/results/[upc]')
