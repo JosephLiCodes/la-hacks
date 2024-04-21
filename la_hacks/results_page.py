@@ -17,26 +17,38 @@ def results() -> rx.Component:
             rx.text(f"Brand: {State.get_upc['brand']}"),
             rx.text(f"Eco Grade: {State.get_upc['eco_grade']}"),
             rx.text(f"Carbon Footprint: {State.get_upc['co2']} g"),
-            rx.accordion.root(
-                rx.accordion.item(
-                    header="Additives",
-                    content=rx.list.unordered(
-                        items=State.get_upc['additives']
-                    ),
-                    font_size="3em"
-                ),
-                collapsible=True,
+            #negatives list 
+            rx.text(f"POSITIVES:"),
+            rx.list.unordered(
+                items = State.get_upc['additives'],
+                list_style_type="none",
             ),
+            rx.text(f"NEGATIVES:"),
+            rx.list.unordered(
+                items = State.get_upc['ingredients'],
+                list_style_type="none",
+            ),
+            rx.accordion.root(
+                        rx.accordion.item(
+                            header="Additives",
+                            content=rx.list.unordered(
+                                items=State.get_upc['additives']
+                            ),
+                            font_size="3em",
+                            style={"backgroundColor": "#505050"}
+                        ),
+                        collapsible=True,
+                    ),
             rx.accordion.root(
                 rx.accordion.item(
                     header="Ingredients",
                     content=rx.list.unordered(
                         items=State.get_upc['ingredients']
                     ),
-                    font_size="3em"
+                    font_size="3em",
+                    style={"backgroundColor": "#505050"}
                 ),
                 collapsible=True,
-            ),
+            )
         )
     )
-
