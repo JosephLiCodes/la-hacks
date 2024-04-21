@@ -15,24 +15,13 @@ def results() -> rx.Component:
                 """
             ),
             intro(),
-            #negatives list 
-            rx.text(f"POSITIVES:"),
-            rx.list.unordered(
-                items = State.get_good_and_bad_deeds['esg_good'],
-                list_style_type="none",
-            ),
-            rx.text(f"NEGATIVES:"),
-            rx.list.unordered(
-                items = State.get_good_and_bad_deeds['esg_bad'],
-                list_style_type="none",
-            ),
             rx.accordion.root(
                 rx.accordion.item(
                     header="Positives",
                     value="default",
                     content=rx.list.unordered(
                         rx.foreach(
-                            State.get_upc['ingredients'],  # Assuming this should be additives or positives list
+                            State.get_good_and_bad_deeds['esg_good'],  # Assuming this should be additives or positives list
                             lambda ingredient: rx.list.item(
                                 rx.icon("circle_check_big", color="green"),
                                 f" {ingredient}",
@@ -48,7 +37,7 @@ def results() -> rx.Component:
                     header="Negatives",
                     content=rx.list.unordered(
                         rx.foreach(
-                            State.get_upc['ingredients'],
+                            State.get_good_and_bad_deeds['esg_bad'],
                             lambda ingredient: rx.list.item(
                                 rx.icon("octagon_x", color="red"),
                                 f" {ingredient}",
