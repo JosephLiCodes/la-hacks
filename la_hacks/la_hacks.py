@@ -15,7 +15,7 @@ def index() -> rx.Component:
 
 app = rx.App(
     theme=rx.theme(
-        appearance="dark", has_background=True, radius="medium", accent_color="mint"
+        appearance="light", has_background=True, radius="medium", accent_color="mint"
     ),
     tailwind={
         "theme": {

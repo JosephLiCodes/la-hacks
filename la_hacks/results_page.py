@@ -1,6 +1,9 @@
 import reflex as rx
 from la_hacks.json_parser import get_product_info
 from la_hacks.state import State
+from la_hacks.results_intro import intro
+from la_hacks.gemini_wrapper import fetch_esg_data
+
 
 def results() -> rx.Component:
     return rx.cond(
@@ -11,12 +14,18 @@ def results() -> rx.Component:
                 <button class="mb-2 text-blue-600" onclick="window.location.replace('/scanner');">← Back</button>
                 """
             ),
-            rx.image(src=State.get_upc['image_url']),
-            rx.heading(State.get_upc['name']),
-            rx.text(f"Brand: {State.get_upc['brand']}"),
-            rx.text(f"Eco Grade: {State.get_upc['eco_grade']}"),
-            rx.text(f"Carbon Footprint: {State.get_upc['co2']} g"),
-            # Single accordion root with multiple items
+            intro(),
+            #negatives list 
+            rx.text(f"POSITIVES:"),
+            rx.list.unordered(
+                items = State.get_good_and_bad_deeds['esg_good'],
+                list_style_type="none",
+            ),
+            rx.text(f"NEGATIVES:"),
+            rx.list.unordered(
+                items = State.get_good_and_bad_deeds['esg_bad'],
+                list_style_type="none",
+            ),
             rx.accordion.root(
                 rx.accordion.item(
                     header="Positives",

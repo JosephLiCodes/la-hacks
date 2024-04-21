@@ -56,11 +56,11 @@ def fetch_esg_data(company_name, tries=0):
             response_data = json.loads(response.json()["candidates"][0]["content"]["parts"][0]["text"][7:-3])
             # Ensure the response matches the expected format
             if "esgGood" in response_data and "esgBad" in response_data:
-                return {
-                    "esgGood": response_data["esgGood"],
-                    "esgBad": response_data["esgBad"],
-                    "ethicsScore": sigmoid_ethics_score(analyze_sentiment(response_data["esgGood"], response_data["esgBad"]))
-                }
+                return [
+                    response_data["esgGood"],
+                    response_data["esgBad"],
+                    sigmoid_ethics_score(analyze_sentiment(response_data["esgGood"], response_data["esgBad"]))
+                ]
             else:
                 # return response_data
                 return fetch_esg_data(company_name, tries+1)
