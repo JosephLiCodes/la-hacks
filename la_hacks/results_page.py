@@ -1,6 +1,7 @@
 import reflex as rx
 from la_hacks.json_parser import get_product_info
 from la_hacks.state import State
+from la_hacks.results_intro import intro
 
 
 def results() -> rx.Component:
@@ -12,11 +13,7 @@ def results() -> rx.Component:
                 <button onclick="window.location.replace('/scanner');">Back</button>
                 """
             ),
-            rx.image(src=State.get_upc['image_url']),
-            rx.heading(State.get_upc['name']),
-            rx.text(f"Brand: {State.get_upc['brand']}"),
-            rx.text(f"Eco Grade: {State.get_upc['eco_grade']}"),
-            rx.text(f"Carbon Footprint: {State.get_upc['co2']} g"),
+            intro(),
             #negatives list 
             rx.text(f"POSITIVES:"),
             rx.list.unordered(
@@ -49,6 +46,7 @@ def results() -> rx.Component:
                     style={"backgroundColor": "#505050"}
                 ),
                 collapsible=True,
-            )
+            ),
+            class_name="bg-[#F3EFE3]"
         )
     )
