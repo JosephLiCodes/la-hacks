@@ -2,6 +2,7 @@ import reflex as rx
 from la_hacks.json_parser import get_product_info
 from la_hacks.state import State
 from la_hacks.results_intro import intro
+from la_hacks.gemini_wrapper import fetch_esg_data
 
 
 def results() -> rx.Component:
@@ -17,12 +18,12 @@ def results() -> rx.Component:
             #negatives list 
             rx.text(f"POSITIVES:"),
             rx.list.unordered(
-                items = State.get_upc['additives'],
+                items = State.get_good_and_bad_deeds['esg_good'],
                 list_style_type="none",
             ),
             rx.text(f"NEGATIVES:"),
             rx.list.unordered(
-                items = State.get_upc['ingredients'],
+                items = State.get_good_and_bad_deeds['esg_bad'],
                 list_style_type="none",
             ),
             rx.accordion.root(
