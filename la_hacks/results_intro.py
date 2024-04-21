@@ -36,8 +36,8 @@ def intro() -> rx.Component:
                 ),
                 rx.box(
                     rx.text(rx.text.strong("Brand: "), State.get_upc['brand']),
-                    rx.text(rx.text.strong("Ecoscore: "), State.get_upc['eco_grade']),
-                    rx.text(rx.text.strong("Ethics Score: "), "71"),
+                    rx.text(rx.text.strong("Eco Grade: "), State.get_upc['eco_grade']),
+                    rx.text(rx.text.strong("Ethics Score: "), State.get_good_and_bad_deeds['ethics_score']),
                     rx.text(rx.text.strong("Carbon Footprint: "), State.get_upc['co2'], "g"),
                     style={
                     "fontFamily": "Roboto, sans-serif",  # Using Roboto as specified
