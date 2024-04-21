@@ -4,6 +4,8 @@ from la_hacks.state import State
 from la_hacks.results_intro import intro
 from la_hacks.gemini_wrapper import fetch_esg_data
 
+
+@rx.page(title="Eco Scan | Results")
 def results() -> rx.Component:
     loader_html = rx.html("""
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100%;">

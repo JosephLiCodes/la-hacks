@@ -10,7 +10,7 @@ def landing_page() -> rx.Component:
     return rx.flex(
         rx.flex(
             rx.container(
-                rx.image(src="/icons/landing.webp", width="100%", style={"height": "66vh", "objectFit": "cover"}),
+                rx.image(src="/icons/ladingpage.png", width="100%", style={"height": "66vh", "objectFit": "cover"}),
                 justify="center",
                 class_name="bg-[#F3EFE3]",
                 width="100%"
