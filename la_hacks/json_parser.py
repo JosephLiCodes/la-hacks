@@ -16,7 +16,10 @@ def get_product_info(barcode_number):
 
     product_brand = product_data["brands"]
     product_name = product_data["product_name"]
-    ingredients_list = list(map(lambda x: x.split(':')[1], product_data["ingredients_hierarchy"]))
+    try:
+        ingredients_list = list(map(lambda x: x.split(':')[1].replace('-', ' ').capitalize(), product_data["ingredients_hierarchy"]))
+    except:
+        ingredients_list = []
     additives_list = []
     image_url = product_data["image_url"]
     if(product_data.get("ecoscore_data") != None):
@@ -27,8 +30,8 @@ def get_product_info(barcode_number):
         else:
             co2 = "unknown"
     for i in range(len(ingredients_list)):
-        if ingredients_list[i] in additive_dictionary:
-            ingredients_list[i] = additive_dictionary[ingredients_list[i]]
+        if ingredients_list[i].lower() in additive_dictionary:
+            ingredients_list[i] = additive_dictionary[ingredients_list[i].lower()]
             additives_list.append(ingredients_list[i])
     return {
         "brand": product_brand,
