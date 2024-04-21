@@ -5,8 +5,9 @@ from la_hacks.gemini_wrapper import fetch_esg_data
 from collections import defaultdict
 
 class State(rx.State):
-    cachedResults = defaultdict(list)
-    @rx.cached_var
+    cached:  dict = {}
+
+    @rx.var
     def get_upc(self) -> Dict[str, Union[List[str]]]:
         upc = self.router.page.params.get('upc', 'no upc')
         if upc != 'no upc':
@@ -30,17 +31,20 @@ class State(rx.State):
             'co2': '',
         }
 
-    @rx.cached_var
+    @rx.var
     def get_good_and_bad_deeds(self) -> Dict[str, Union[List[str]]]:
         upc = self.router.page.params.get('upc', 'no upc')
         if upc != 'no upc':
+            if upc in self.cached:
+                return self.cached[upc]
             product_info = get_product_info(upc)
             esg_good, esg_bad, ethics_score = fetch_esg_data(product_info['brand'])
-            return {
+            self.cached[upc] = {
                 'esg_good': esg_good,
                 'esg_bad': esg_bad,
                 'ethics_score': ethics_score,
             }
+            return self.cached[upc]
         return {
             'esg_good': [],
             'esg_bad': [],

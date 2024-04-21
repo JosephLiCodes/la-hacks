@@ -22,15 +22,16 @@ def analyze_sentiment(esgGood, esgBad):
     scores_good = analyzer.polarity_scores(text_good)
     scores_bad = analyzer.polarity_scores(text_bad)
 
-    return scores_good['pos'] - scores_bad['neg']
+    return scores_good['pos'] - scores_bad['neg']*1.5
 
 
 def fetch_esg_data(company_name, tries=0):
-    return [
-        ["hi"],
-        ["bye", "byebye bye byeasdfasDG FASDGAS DGIHJA' DSPDO UJIP OI","bye","bye","bye","bye","bye",],
-        50
-    ]
+    # return [
+    #     ["hi"],
+    #     ["bye", "byebye bye byeasdfasDG FASDGAS DGIHJA' DSPDO UJIP OI","bye","bye","bye","bye","bye",],
+    #     50
+    # ]
+    print(tries, company_name)
     if tries > 3:
         return "I GIVE UP ):"
     url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
@@ -51,13 +52,13 @@ def fetch_esg_data(company_name, tries=0):
             }
         ]
     }
-
-    # Send the POST request
+    print('about to send this piece of request') # Send the POST request
     response = requests.post(url, headers=headers, json=data, params=params)
-    
+    print("LFG! REQEUST SENT!")
     # Check if the response was successful
     if response.status_code == 200:
         try:
+            print(response.json())
             response_data = json.loads(response.json()["candidates"][0]["content"]["parts"][0]["text"][7:-3])
             # Ensure the response matches the expected format
             if "esgGood" in response_data and "esgBad" in response_data:

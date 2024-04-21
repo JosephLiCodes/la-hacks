@@ -1,4 +1,5 @@
 import reflex as rx
+from la_hacks.state import State
 
 
 def scanner() -> rx.Component:

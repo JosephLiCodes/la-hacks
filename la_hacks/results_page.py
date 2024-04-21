@@ -24,7 +24,7 @@ def results() -> rx.Component:
                         rx.foreach(
                             State.get_good_and_bad_deeds['esg_good'],
                             lambda ingredient: rx.list.item(
-                                rx.icon("dot", color="#90EE90", size=12),
+                                rx.icon("dot", color="#90EE90", size=24),
                                 rx.text(f" {ingredient}", style=accordion_text_style),
                                 class_name="text-black border-b border-gray-200 border-opacity-50"
                             )
@@ -40,7 +40,7 @@ def results() -> rx.Component:
                         rx.foreach(
                             State.get_good_and_bad_deeds['esg_bad'],
                             lambda ingredient: rx.list.item(
-                                rx.icon("circle_minus", color="red", size=16),
+                                rx.icon("dot", color="#FF0000", size=24),
                                 rx.text(f" {ingredient}", style=accordion_text_style, class_name=""),
                                 class_name="text-black mb-2 border-b border-gray-200 border-opacity-50"
                             )
@@ -56,7 +56,7 @@ def results() -> rx.Component:
                         items=State.get_upc['additives'],
                         class_name="text-black"
                     ),
-                    font_size="3em",
+                    font_size="4em",
                     class_name="w-full"
                 ),
                 rx.accordion.item(
@@ -65,11 +65,11 @@ def results() -> rx.Component:
                         items=State.get_upc['ingredients'],
                         class_name="text-black"
                     ),
-                    font_size="3em",
+                    font_size="4em",
                     class_name="w-full"
                 ),
                 rx.accordion.item(
-                    header=rx.text("Ingredients", style={"fontSize": "1rem"}),
+                    header=rx.text("Alternatives", style={"fontSize": "1rem"}),
                     content=rx.list.unordered(
                         items=[
                             rx.list.item(rx.text("Patagonia")),
