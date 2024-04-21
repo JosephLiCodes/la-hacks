@@ -15,7 +15,7 @@ def index() -> rx.Component:
 
 app = rx.App(
     theme=rx.theme(
-        appearance="light", has_background=True, radius="medium", accent_color="mint"
+        appearance="light", has_background=True, radius="medium", accent_color="gray"
     ),
     tailwind={
         "theme": {
@@ -27,6 +27,7 @@ app = rx.App(
         "/styles.css",
     ]
 )
+
 app.add_page(index)
 app.add_page(scanner)
 app.add_page(results, route='/results/[upc]')
