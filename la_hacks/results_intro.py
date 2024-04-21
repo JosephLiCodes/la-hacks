@@ -55,7 +55,7 @@ def intro() -> rx.Component:
                 width="100%"
             ),
             
-            class_name="bg-[#F3EFE3]",
+            class_name="bg-[#FFFAE2]",
             width="100%",
             spacing="6",
         )

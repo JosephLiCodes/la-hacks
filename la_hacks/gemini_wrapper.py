@@ -12,7 +12,7 @@ nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 def sigmoid_ethics_score(sentiment_score):
-        k = 10  # Steepness of the sigmoid curve
+        k = 4  # Steepness of the sigmoid curve
         return int(100 / (1 + math.exp(-k * sentiment_score)))
 
 def analyze_sentiment(esgGood, esgBad):        
@@ -26,6 +26,11 @@ def analyze_sentiment(esgGood, esgBad):
 
 
 def fetch_esg_data(company_name, tries=0):
+    return [
+        ["hi"],
+        ["bye", "byebye bye byeasdfasDG FASDGAS DGIHJA' DSPDO UJIP OI","bye","bye","bye","bye","bye",],
+        50
+    ]
     if tries > 3:
         return "I GIVE UP ):"
     url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'

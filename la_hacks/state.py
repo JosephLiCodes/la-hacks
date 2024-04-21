@@ -6,7 +6,7 @@ from collections import defaultdict
 
 class State(rx.State):
     cachedResults = defaultdict(list)
-    @rx.var
+    @rx.cached_var
     def get_upc(self) -> Dict[str, Union[List[str]]]:
         upc = self.router.page.params.get('upc', 'no upc')
         if upc != 'no upc':
