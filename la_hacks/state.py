@@ -38,6 +38,12 @@ class State(rx.State):
             if upc in self.cached:
                 return self.cached[upc]
             product_info = get_product_info(upc)
+            if product_info['image_url'] == 'error':
+                return {
+                    'esg_good': [],
+                    'esg_bad': [],
+                    'ethics_score': '',
+                }
             esg_good, esg_bad, ethics_score = fetch_esg_data(product_info['brand'])
             self.cached[upc] = {
                 'esg_good': esg_good,

@@ -13,11 +13,23 @@ def get_product_info(barcode_number):
     response = requests.get(FOOD_FACTS_API_URL)
     #toss a popup modal here if there's an error when implemented
     response.raise_for_status() 
-    product_data = response.json()["product"]
+    product_data = None
+    try:
+        product_data = response.json()["product"]
+    except:
+        return {
+            "brand": "error",
+            "name": "error",
+            "ingredients": [],
+            "additives": [],
+            "eco_grade": -1,
+            "co2": -1,
+            "image_url" : "error"
+        }
 
-    
     product_name = product_data.get("product_name", "Unknown")
-    product_brand = product_data.get("brands", product_name)
+    product_brand = product_data.get("brands", product_name).capitalize()
+    
     try:
         ingredients_list = list(map(lambda x: x.split(':')[1].replace('-', ' ').capitalize(), product_data["ingredients_hierarchy"]))
     except:

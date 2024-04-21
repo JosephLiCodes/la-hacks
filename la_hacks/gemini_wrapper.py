@@ -22,7 +22,7 @@ def analyze_sentiment(esgGood, esgBad):
     scores_good = analyzer.polarity_scores(text_good)
     scores_bad = analyzer.polarity_scores(text_bad)
 
-    return scores_good['pos'] - scores_bad['neg']*1.5
+    return scores_good['pos'] - scores_bad['neg']*1.25
 
 
 def fetch_esg_data(company_name, tries=0):

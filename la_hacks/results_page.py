@@ -47,6 +47,15 @@ def results() -> rx.Component:
     accordion_text_style = {"fontSize": "0.85rem"}
     return rx.box(
         rx.cond(
+        (State.get_upc['image_url'] == State.get_upc['brand']),
+        rx.script(
+            """
+                alert("Could not identify barcode number. Please try again.");
+                window.location.href = "/scanner";
+            """
+        )
+        ),
+        rx.cond(
         (State.get_upc.to_string() != 'no upc') & (State.get_good_and_bad_deeds['esg_good'].length() != 0) & (State.get_good_and_bad_deeds['esg_bad'].length() != 0),
             rx.box(
                 rx.html(
