@@ -4,6 +4,8 @@ from la_hacks.state import State
 from la_hacks.results_intro import intro
 from la_hacks.gemini_wrapper import fetch_esg_data
 
+
+@rx.page(title="Eco Scan | Results")
 def results() -> rx.Component:
     # Define larger font size for text within accordions
     accordion_text_style = {"fontSize": "0.85rem"}  # Adjust font size as needed
