@@ -16,7 +16,7 @@ def landing_page() -> rx.Component:
                 width="100%"
             ),
             rx.text(
-                "Welcome to awesome scanner!",
+                "Welcome to EcoScan!",
                 style={
                     "fontFamily": "Montserrat, sans-serif",
                     "fontWeight": "550",
