@@ -144,8 +144,8 @@ def results() -> rx.Component:
                     exclusive=True,
                     color_scheme=None,
                 ),
-                class_name="bg-[#FFFAE2] p-0 h-[100vh]",
-                style={"fontFamily": "Montserrat, sans-serif", "fontWeight": "200"}
+                class_name="bg-[#FFFAE2] p-0 h-full",
+                style={"fontFamily": "Montserrat, sans-serif", "fontWeight": "200", "minHeight": "100vh", "height": "100%"}
             )
         ),
         rx.cond(
@@ -154,7 +154,7 @@ def results() -> rx.Component:
                 rx.center(
                     loader_html
                 ),
-                class_name="bg-[#FFFAE2] p-0 min-h-screen max-h-full",
+                class_name="bg-[#FFFAE2] p-0 h-full",
                 style={"display": "flex", "alignItems": "center", "justifyContent": "center"}
             )
         )

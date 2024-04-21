@@ -32,7 +32,7 @@ def fetch_esg_data(company_name, tries=0):
     #     50
     # ]
     print(tries, company_name)
-    if tries > 3:
+    if tries > 5:
         return "I GIVE UP ):"
     url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
     headers = {
