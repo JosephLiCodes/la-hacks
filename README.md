@@ -1,4 +1,4 @@
-##ECOSCAN
+# ECOSCAN
 
 ## Inspiration
 One of our team members is currently enrolled in a labor studies course and was surprised to learn how exploitative many major corporations can be. Further investigation revealed that numerous companies not only exploit labor but also bend environmental laws to their advantage. Motivated to address this issue, we created EcoScan, an app that helps users find environmentally friendly and ethical products.
