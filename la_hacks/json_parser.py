@@ -39,6 +39,6 @@ def get_product_info(barcode_number):
         "ingredients": ingredients_list,
         "additives": additives_list,
         "eco_grade": grade,
-        "co2": co2,
+        "co2": "{:.2f}".format(co2),
         "image_url" : image_url
     }

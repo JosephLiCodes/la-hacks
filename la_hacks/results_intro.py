@@ -12,8 +12,7 @@ def intro() -> rx.Component:
                     style={
                         "height": "20vh", 
                         "objectFit": "cover",
-                        "paddingLeft": "2rem",
-                        "paddingRight": "2rem",
+                        "marginLeft": "1em"
                     }
                 ),
             ),
@@ -36,9 +35,9 @@ def intro() -> rx.Component:
                 ),
                 rx.box(
                     rx.text(rx.text.strong("Brand: "), State.get_upc['brand']),
-                    rx.text(rx.text.strong("Eco Grade: "), State.get_upc['eco_grade']),
-                    rx.text(rx.text.strong("Ethics Score: "), State.get_good_and_bad_deeds['ethics_score']),
-                    rx.text(rx.text.strong("Carbon Footprint: "), State.get_upc['co2'], "g"),
+                    rx.text(rx.text.strong("Eco Grade: "), State.get_upc['eco_grade'].to_string().split('"')[1].upper()),
+                    rx.text(rx.text.strong("Ethics Score: "), State.get_good_and_bad_deeds['ethics_score'], "/100"),
+                    rx.text(rx.text.strong("Carbon Footprint: "), State.get_upc['co2'], " g"),
                     style={
                     "fontFamily": "Roboto, sans-serif",  # Using Roboto as specified
                     "fontWeight": "200",  # Regular style

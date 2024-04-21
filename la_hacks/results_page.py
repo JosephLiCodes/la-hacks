@@ -70,7 +70,7 @@ def results() -> rx.Component:
                 class_name="w-full",
                 default_value="default",
                 exclusive=True,
-                color_scheme=None
+                color_scheme=None,
             ),
             class_name="bg-[#FFFAE2] text-[#505050] p-0 h-[100vh]",
             style={"fontFamily": "Montserrat, sans-serif", "fontWeight": "200"}

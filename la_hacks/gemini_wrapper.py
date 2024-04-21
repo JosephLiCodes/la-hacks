@@ -13,7 +13,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 def sigmoid_ethics_score(sentiment_score):
         k = 10  # Steepness of the sigmoid curve
-        return 100 / (1 + math.exp(-k * sentiment_score))
+        return int(100 / (1 + math.exp(-k * sentiment_score)))
 
 def analyze_sentiment(esgGood, esgBad):        
     analyzer = SentimentIntensityAnalyzer()
