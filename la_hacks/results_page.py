@@ -14,11 +14,6 @@ def results() -> rx.Component:
                 """
             ),
             intro(),
-            # rx.image(src=State.get_upc['image_url']),
-            # rx.heading(State.get_upc['name']),
-            # rx.text(f"Brand: {State.get_upc['brand']}"),
-            # rx.text(f"Eco Grade: {State.get_upc['eco_grade']}"),
-            # rx.text(f"Carbon Footprint: {State.get_upc['co2']} g"),
             #negatives list 
             rx.text(f"POSITIVES:"),
             rx.list.unordered(

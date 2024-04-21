@@ -1,21 +1,13 @@
 import reflex as rx
 from la_hacks.state import State
 
-class CircleColor(rx.State):
-    colors = [
-        "red",
-        "yellow",
-        "green",
-    ]
-
-
 def intro() -> rx.Component:
     return rx.cond(
-        True,
+        State.get_upc.to_string() != 'no upc',
         rx.flex(
             rx.box(
                 rx.image(
-                    src="/tea.png",
+                    src=State.get_upc['image_url'],
                     width="100%",
                     style={
                         "height": "20vh", 
@@ -27,7 +19,7 @@ def intro() -> rx.Component:
             ),
             rx.box(
                 rx.heading(
-                "Pure Leaf Tea",
+                State.get_upc['name'],
                 style={
                     "fontFamily": "Montserrat, sans-serif",
                     "fontWeight": "550",
@@ -43,10 +35,10 @@ def intro() -> rx.Component:
                 class_name="sm:text-sm md:text-md lg:text-lg fade-in-text",
                 ),
                 rx.box(
-                    rx.text(rx.text.strong("Brand: "), "Zhenda"),
-                    rx.text(rx.text.strong("Ecoscore: "), "B"),
+                    rx.text(rx.text.strong("Brand: "), State.get_upc['brand']),
+                    rx.text(rx.text.strong("Ecoscore: "), State.get_upc['eco_grade']),
                     rx.text(rx.text.strong("Ethics Score: "), "71"),
-                    rx.text(rx.text.strong("Carbon Footprint: "), "69 g"),
+                    rx.text(rx.text.strong("Carbon Footprint: "), State.get_upc['co2'], "g"),
                     style={
                     "fontFamily": "Roboto, sans-serif",  # Using Roboto as specified
                     "fontWeight": "200",  # Regular style
