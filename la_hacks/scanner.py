@@ -1,7 +1,7 @@
 import reflex as rx
 from la_hacks.state import State
 
-@rx.page(title="Eco Scan | Scanner")
+@rx.page(title="EcoScan | Scanner")
 def scanner() -> rx.Component:
     html_content = """
    <!doctype html>

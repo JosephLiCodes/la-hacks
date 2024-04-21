@@ -9,7 +9,7 @@ load_dotenv()
 
 text_size = "5"
 
-@rx.page(title="Eco Scan", image="/logos/l0g02.png")
+@rx.page(title="EcoScan", image="/logos/l0g02.png")
 def index() -> rx.Component:
     """Create the main view for the Reflex landing page."""
     return landing_page()

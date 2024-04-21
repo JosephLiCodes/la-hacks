@@ -5,7 +5,7 @@ from la_hacks.results_intro import intro
 from la_hacks.gemini_wrapper import fetch_esg_data
 
 
-@rx.page(title="Eco Scan | Results")
+@rx.page(title="EcoScan | Results")
 def results() -> rx.Component:
     loader_html = rx.html("""
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100%;">
@@ -145,7 +145,7 @@ def results() -> rx.Component:
                 rx.center(
                     loader_html
                 ),
-                class_name="bg-[#FFFAE2] p-0 h-[100vh]",
+                class_name="bg-[#FFFAE2] p-0 min-h-screen max-h-full",
                 style={"display": "flex", "alignItems": "center", "justifyContent": "center"}
             )
         )
